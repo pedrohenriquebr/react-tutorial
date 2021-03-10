@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import  React,{ Component } from "react";
 
 class Form extends Component {
   initState = {
@@ -41,6 +41,7 @@ class Form extends Component {
           value={job}
           onChange={this.handleChange}
         />
+        <input type="button" value="Submit" onClick={this.submitForm} />
       </form>
     );
   }
