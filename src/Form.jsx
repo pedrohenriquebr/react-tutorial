@@ -12,7 +12,7 @@ const Form = ({handleSubmit}) => {
   const handleChange = (event) => {
     const { name, value } = event.target;
     console.log({name, value});
-    setState({
+    setState({...state,
       [name]: value,
     });
   };
