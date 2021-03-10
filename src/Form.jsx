@@ -1,53 +1,54 @@
-import  React,{ Component } from "react";
+import { useState } from "react";
 
-class Form extends Component {
-  initState = {
+const Form = ({handleSubmit}) => {
+  
+  const initState = {
     name: "",
     job: "",
   };
-  state = this.initState;
 
-  handleChange = (event) => {
+  const [state,setState] = useState(initState);
+
+  const handleChange = (event) => {
     const { name, value } = event.target;
-
-    this.setState({
+    console.log({name, value});
+    setState({
       [name]: value,
     });
   };
 
-  submitForm = () => {
-    this.props.handleSubmit(this.state);
-    this.setState(this.initialState);
+
+  const submitForm = () => {
+    handleSubmit(state);
+    setState(initState);
   };
 
-  render() {
-    const { name, job } = this.state;
+  const { name, job } = state;
 
-    return (
-      <form>
-       <div className="input-field">
-       <label htmlFor="name">Name</label>
-        <input
-          type="text"
-          name="name"
-          id="name"
-          value={name}
-          onChange={this.handleChange}
-        />
-       </div>
-        <div className="input-field">
-          <label htmlFor="job">Job</label>
-        <input
-          type="text"
-          name="job"
-          id="job"
-          value={job}
-          onChange={this.handleChange}
-        /></div>
-        <input type="button" value="Submit" onClick={this.submitForm} />
-      </form>
-    );
-  }
+  return (
+    <form>
+     <div className="input-field">
+     <label htmlFor="name">Name</label>
+      <input
+        type="text"
+        name="name"
+        id="name"
+        value={name}
+        onChange={handleChange}
+      />
+     </div>
+      <div className="input-field">
+        <label htmlFor="job">Job</label>
+      <input
+        type="text"
+        name="job"
+        id="job"
+        value={job}
+        onChange={handleChange}
+      /></div>
+      <input type="button" value="Submit" onClick={submitForm} />
+    </form>
+  );
 }
 
 export default Form;

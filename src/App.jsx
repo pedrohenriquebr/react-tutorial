@@ -1,9 +1,9 @@
-import {Component} from "react";
+import {useState} from "react";
 import Table from "./Table";
 import Form from "./Form";
 
-class App extends Component {
-  state = {
+const App = () => {
+  const [state, setState ] =  useState({
     characters: [
       {
         name: "Charlie",
@@ -22,33 +22,30 @@ class App extends Component {
         job: "Bartender",
       },
     ],
-  };
+  });
 
-  removeCharacter = (index) => {
-    const { characters } = this.state;
+  const removeCharacter = (index) => {
+    const { characters } = state;
 
-    this.setState({
+    setState({
       characters: characters.filter((character, i) => {
         return i !== index;
       }),
     });
   };
 
-  handleSubmit = (character) => {
-    this.setState({ characters: [...this.state.characters, character] });
+  const handleSubmit = (character) => {
+    setState({ characters: [...state.characters, character] });
   };
 
-  render() {
     return (
       <div className="container">
         <Table
-          characterData={this.state.characters}
-          removeCharacter={this.removeCharacter}
+          characterData={state.characters}
+          removeCharacter={removeCharacter}
         />
-        <Form handleSubmit={this.handleSubmit} />
+        <Form handleSubmit={handleSubmit} />
       </div>
     );
-  }
 }
-
 export default App;
