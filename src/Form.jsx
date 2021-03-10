@@ -25,7 +25,8 @@ class Form extends Component {
 
     return (
       <form>
-        <label htmlFor="name">Name</label>
+       <div className="input-field">
+       <label htmlFor="name">Name</label>
         <input
           type="text"
           name="name"
@@ -33,14 +34,16 @@ class Form extends Component {
           value={name}
           onChange={this.handleChange}
         />
-        <label htmlFor="job">Job</label>
+       </div>
+        <div className="input-field">
+          <label htmlFor="job">Job</label>
         <input
           type="text"
           name="job"
           id="job"
           value={job}
           onChange={this.handleChange}
-        />
+        /></div>
         <input type="button" value="Submit" onClick={this.submitForm} />
       </form>
     );

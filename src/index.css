@@ -24,7 +24,7 @@ code {
 }
 
 .container {
-  width: 60%;
+  width: 90vw;
   margin: 20px auto;
   display: flex;
   flex-direction: column;
@@ -56,14 +56,24 @@ table td, table th {
 form {
   display: flex;
   flex-direction: column;
-  width:50%;
+  align-items: center;
+  width:500px;
   margin: 0 auto;
+}
+
+.input-field {
+  width: 100%;
 }
 
 input { 
   margin: 10px 0;
   border: none ;
   outline: none;
-  border-bottom: 1px solid var(--primary-color);
+  width: 100%;
+  border-bottom: 1px solid lightgray;
   font-size: 1.2rem;
+}
+
+input:focus {
+  border-bottom: 2px solid var(--primary-color);
 }
